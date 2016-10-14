@@ -1,0 +1,13 @@
+{
+  "name": "Rakawm Example Snap Merchant",
+  "description": "Snap Example Merchant",
+  "keywords": [
+    "go",
+    "snap",
+    "payment"
+  ],
+  "image": "heroku/go:1.6",
+  "mount_dir": "src/github.com/rakawestu/rakawm-snap",
+  "website": "http://github.com/rakawestu/rakawm-snap",
+  "repository": "http://github.com/rakawestu/rakawm-snap"
+}
