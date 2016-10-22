@@ -16,8 +16,11 @@ func Charge(c *gin.Context) {
 
 	// HTTP client
 	client := http.DefaultClient
-
-	request, err := http.NewRequest("POST", SnapURL+"/transactions", c.Request.Body)
+	var URL = SnapURL
+	if EnableProduction {
+		URL = SnapURLProduction
+	}
+	request, err := http.NewRequest("POST", URL+"/transactions", c.Request.Body)
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"status_code": "400", "status_message": "Bad Request"})
