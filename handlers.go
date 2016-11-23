@@ -60,6 +60,7 @@ func ChargeWithInstallment(c *gin.Context) {
 		requestJSON.Set("credit_card", CreditCard{Installment: installment, WhitelistBins: whitelist})
 	} else {
 		creditCard.Set("installment", installment)
+		creditCard.Set("whitelist_bins", whitelist)
 		requestJSON.Set("credit_card", creditCard)
 	}
 	requestJSONMarshaled, _ := requestJSON.MarshalJSON()
