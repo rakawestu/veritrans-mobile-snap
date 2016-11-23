@@ -56,12 +56,12 @@ func ChargeWithInstallment(c *gin.Context) {
 	requestBody, _ := ioutil.ReadAll(c.Request.Body)
 	requestJSON, _ := simplejson.NewJson(requestBody)
 	creditCard := requestJSON.Get("credit_card")
-	if creditCard != nil {
-		creditCard.Set("installment", CreditCard{Installment: installment, WhitelistBins: whitelist})
+	if creditCard == nil {
+		requestJSON.Set("credit_card", CreditCard{Installment: installment, WhitelistBins: whitelist})
+	} else {
+		creditCard.Set("installment", installment)
 		requestJSON.Set("credit_card", creditCard)
 	}
-
-	requestJSON.Set("credit_card", CreditCard{Installment: installment})
 	requestJSONMarshaled, _ := requestJSON.MarshalJSON()
 	requestObj := bytes.NewReader(requestJSONMarshaled)
 	request, err := http.NewRequest("POST", URL+"/transactions", requestObj)
