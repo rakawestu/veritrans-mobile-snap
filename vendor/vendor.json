@@ -3,6 +3,12 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "BSAMEAW2RZ3ycbZjwWobHHz+9Ck=",
+			"path": "github.com/bitly/go-simplejson",
+			"revision": "aabad6e819789e569bd6aabf444c935aa9ba1e44",
+			"revisionTime": "2015-09-15T16:53:35Z"
+		},
+		{
 			"checksumSHA1": "RDDo6zqKb6Mpa4EOFv0RT8ryXvQ=",
 			"path": "github.com/gin-gonic/gin",
 			"revision": "3900df04d2a88e22beaf6a2970c63648b9e1b0e1",
@@ -51,5 +57,5 @@
 			"revisionTime": "2016-09-28T15:37:09Z"
 		}
 	],
-	"rootPath": "github.com/rakawestu/rakawm-snap"
+	"rootPath": "/github.com/rakawestu/rakawm-snap"
 }
