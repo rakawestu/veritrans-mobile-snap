@@ -57,7 +57,7 @@ func ChargeWithInstallment(c *gin.Context) {
 	requestJSON, _ := simplejson.NewJson(requestBody)
 	creditCard := requestJSON.Get("credit_card")
 	if creditCard != nil {
-		creditCard.Set("installment", CreditCard{Installment: installment, WhitelistBin: whitelist})
+		creditCard.Set("installment", CreditCard{Installment: installment, WhitelistBins: whitelist})
 		requestJSON.Set("credit_card", creditCard)
 	}
 
