@@ -17,11 +17,11 @@ type TransactionDetails struct {
 
 // CreditCard data model
 type CreditCard struct {
-	Secure       bool        `json:"secure,omitempty"`
-	Channel      string      `json:"channel,omitempty"`
-	Bank         string      `json:"bank,omitempty"`
-	Installment  Installment `json:"installment,omitempty"`
-	WhitelistBin []string    `json:"whitelist_bin,omitempty"`
+	Secure        bool        `json:"secure,omitempty"`
+	Channel       string      `json:"channel,omitempty"`
+	Bank          string      `json:"bank,omitempty"`
+	Installment   Installment `json:"installment,omitempty"`
+	WhitelistBins []string    `json:"whitelist_bins,omitempty"`
 }
 
 // Installment data model
