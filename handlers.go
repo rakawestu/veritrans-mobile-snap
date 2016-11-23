@@ -52,11 +52,12 @@ func ChargeWithInstallment(c *gin.Context) {
 	}
 
 	installment := getInstallmentData()
+	whitelist := getWhitelistBin()
 	requestBody, _ := ioutil.ReadAll(c.Request.Body)
 	requestJSON, _ := simplejson.NewJson(requestBody)
 	creditCard := requestJSON.Get("credit_card")
 	if creditCard != nil {
-		creditCard.Set("installment", CreditCard{Installment: installment})
+		creditCard.Set("installment", CreditCard{Installment: installment, WhitelistBin: whitelist})
 		requestJSON.Set("credit_card", creditCard)
 	}
 
@@ -81,6 +82,11 @@ func ChargeWithInstallment(c *gin.Context) {
 	}
 
 }
+
 func getInstallmentData() Installment {
 	return Installment{Required: false, Terms: Terms{BNI: []int{3, 6, 12}, Mandiri: []int{3, 6, 12}, BCA: []int{3, 6, 12}, CIMB: []int{3, 6, 12}, Offline: []int{3, 6, 12}}}
+}
+
+func getWhitelistBin() []string {
+	return []string{"481111", "521111"}
 }
