@@ -4,11 +4,22 @@ Example implementation of Merchant Server required for new [Veritrans Mobile SDK
 
 ## Endpoints
 
+### Normal Transactions
 ```
 POST /charge
 ```
 
 This endpoint will redirect user request to Snap endpoint `/transactions` with added `Server Key`.
+
+The response will be returned to user.
+
+### Installment
+
+```
+POST /installment/charge
+```
+
+This will redirect user request to Snap endpoint `/transactions` with added installment data and `Server Key`.
 
 The response will be returned to user.
 
