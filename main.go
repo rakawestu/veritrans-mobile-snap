@@ -41,6 +41,7 @@ func main() {
 	router := gin.New()
 	router.Use(gin.Logger())
 	router.POST("/charge", Charge)
+	router.POST("/installment/charge", ChargeWithInstallment)
 
 	router.Run(":" + port)
 }
