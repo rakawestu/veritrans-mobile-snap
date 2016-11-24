@@ -62,8 +62,10 @@ func main() {
 
 	router := gin.New()
 	router.Use(gin.Logger())
-	router.POST("/charge", Charge)
 	router.POST("/installment/charge", ChargeWithInstallment)
+	router.GET("/installment/users/:id/tokens", GetCardsEndpoint)
+	router.POST("/installment/users/:id/tokens", SaveCardsEndpoint)
+	router.POST("/charge", Charge)
 	router.GET("/users/:id/tokens", GetCardsEndpoint)
 	router.POST("/users/:id/tokens", SaveCardsEndpoint)
 
