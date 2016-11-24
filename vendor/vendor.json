@@ -51,11 +51,35 @@
 			"revisionTime": "2016-07-18T13:41:25Z"
 		},
 		{
+			"checksumSHA1": "bDSCvmvwCYcN5mPjePIzpPyqGYM=",
+			"path": "gopkg.in/mgo.v2",
+			"revision": "b6e2fa371e64216a45e61072a96d4e3859f169da",
+			"revisionTime": "2016-02-23T13:38:14Z"
+		},
+		{
+			"checksumSHA1": "zTjQOFGy4XTv4L33Kd2FhrV+mbM=",
+			"path": "gopkg.in/mgo.v2/bson",
+			"revision": "b6e2fa371e64216a45e61072a96d4e3859f169da",
+			"revisionTime": "2016-02-23T13:38:14Z"
+		},
+		{
+			"checksumSHA1": "CkCDTsyN2Lbj1cL8+oaYKoPpI9w=",
+			"path": "gopkg.in/mgo.v2/internal/sasl",
+			"revision": "b6e2fa371e64216a45e61072a96d4e3859f169da",
+			"revisionTime": "2016-02-23T13:38:14Z"
+		},
+		{
+			"checksumSHA1": "+1WDRPaOphSCmRMxVPIPBV4aubc=",
+			"path": "gopkg.in/mgo.v2/internal/scram",
+			"revision": "b6e2fa371e64216a45e61072a96d4e3859f169da",
+			"revisionTime": "2016-02-23T13:38:14Z"
+		},
+		{
 			"checksumSHA1": "12GqsW8PiRPnezDDy0v4brZrndM=",
 			"path": "gopkg.in/yaml.v2",
 			"revision": "a5b47d31c556af34a302ce5d659e6fea44d90de0",
 			"revisionTime": "2016-09-28T15:37:09Z"
 		}
 	],
-	"rootPath": "/github.com/rakawestu/rakawm-snap"
+	"rootPath": "github.com/rakawestu/rakawm-snap"
 }
