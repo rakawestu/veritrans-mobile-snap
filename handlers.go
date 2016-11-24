@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/bitly/go-simplejson"
 	"github.com/gin-gonic/gin"
@@ -82,6 +83,55 @@ func ChargeWithInstallment(c *gin.Context) {
 		c.JSON(http.StatusOK, respObj)
 	}
 
+}
+
+// GetCardsEndpoint handles get cards action
+func GetCardsEndpoint(c *gin.Context) {
+	id := c.Param("id")
+	limitQuery := c.Query("limit")
+	offsetQuery := c.Query("offset")
+
+	var limit int64 = 10
+	var offset int64
+
+	if limitQuery != "" {
+		limit1, _ := strconv.ParseInt(limitQuery, 10, 32)
+		limit = limit1
+	}
+	if offsetQuery != "" {
+		offset1, _ := strconv.ParseInt(offsetQuery, 0, 32)
+		offset = offset1
+	}
+
+	cards := GetCards(id, int(limit), int(offset))
+
+	if len(cards) > 0 {
+		c.JSON(http.StatusOK, cards)
+	} else {
+		c.String(http.StatusOK, "There's no saved card for that ID")
+	}
+}
+
+// SaveCardsEndpoint handles save card
+func SaveCardsEndpoint(c *gin.Context) {
+	id := c.Param("id")
+	var arrayCard []Card
+	requestBody, err := ioutil.ReadAll(c.Request.Body)
+	if err != nil {
+		c.String(http.StatusBadRequest, "Wrong data format")
+	} else {
+		err1 := json.Unmarshal(requestBody, &arrayCard)
+		if err1 != nil {
+			c.String(http.StatusBadRequest, "Wrong data format")
+		} else {
+			err2 := SaveCards(id, arrayCard)
+			if err2 != nil {
+				c.String(http.StatusInternalServerError, err2.Error())
+			} else {
+				c.String(http.StatusOK, "Card is saved")
+			}
+		}
+	}
 }
 
 func getInstallmentData() Installment {

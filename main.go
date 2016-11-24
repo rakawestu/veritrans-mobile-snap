@@ -4,8 +4,16 @@ import (
 	"log"
 	"os"
 
+	"gopkg.in/mgo.v2"
+
 	"github.com/gin-gonic/gin"
 )
+
+// MongoDBUrl url of mongo db
+var MongoDBUrl string
+
+// MongoDB database connection
+var MongoDB *mgo.Database
 
 // SnapURL is snap endpoint
 var SnapURL = "https://app.sandbox.veritrans.co.id/snap/v1"
@@ -23,6 +31,8 @@ func main() {
 	port := os.Getenv("PORT")
 	serverKey := os.Getenv("SERVER_KEY")
 	enableProduction := os.Getenv("PRODUCTION")
+	MongoDBUrl := os.Getenv("MONGODB_URL")
+	MongoDBName := os.Getenv("MONGODB_NAME")
 
 	if port == "" {
 		log.Fatal("$PORT must be set")
@@ -38,10 +48,24 @@ func main() {
 		EnableProduction = true
 	}
 
+	if MongoDBUrl == "" || MongoDBName == "" {
+		log.Fatal("$MONGODB_URL and $MONGODB_NAME must be set")
+	}
+
+	MongoSession, err := mgo.Dial(MongoDBUrl)
+	if err != nil {
+		panic(err)
+	}
+	defer MongoSession.Close()
+	MongoSession.SetMode(mgo.Monotonic, true)
+	MongoDB = MongoSession.DB(MongoDBName)
+
 	router := gin.New()
 	router.Use(gin.Logger())
 	router.POST("/charge", Charge)
 	router.POST("/installment/charge", ChargeWithInstallment)
+	router.GET("/users/:id/tokens", GetCardsEndpoint)
+	router.POST("/users/:id/tokens", SaveCardsEndpoint)
 
 	router.Run(":" + port)
 }
