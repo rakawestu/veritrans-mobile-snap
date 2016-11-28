@@ -11,8 +11,8 @@ const (
 )
 
 // GetCards to get cards from database
-func GetCards(userID string, limit int, skip int) []JsonCard {
-	var cards []JsonCard
+func GetCards(userID string, limit int, skip int) []JSONCard {
+	var cards []JSONCard
 	c := MongoDB.C(cardCollectionKey)
 	err := c.Find(bson.M{"userid": userID}).Limit(limit).Skip(skip).All(&cards)
 	if err != nil {
