@@ -82,6 +82,7 @@ type Card struct {
 	SavedToken string `json:"token_id"`
 	MaskedCard string `json:"cardhash"`
 	StatusCode string `json:"status_code"`
+	Type       string `json:"type"`
 }
 
 // JsonCard data model
@@ -89,4 +90,5 @@ type JsonCard struct {
 	SavedToken string `json:"token_id"`
 	MaskedCard string `json:"cardhash"`
 	StatusCode string `json:"status_code"`
+	Type       string `json:"type"`
 }
