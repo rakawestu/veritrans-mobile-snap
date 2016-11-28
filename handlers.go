@@ -126,9 +126,9 @@ func SaveCardsEndpoint(c *gin.Context) {
 		} else {
 			err2 := SaveCards(id, arrayCard)
 			if err2 != nil {
-				c.String(http.StatusInternalServerError, err2.Error())
+				c.JSON(http.StatusInternalServerError, gin.H{"message": err2.Error(), "status": "failed", "code": http.StatusInternalServerError})
 			} else {
-				c.String(http.StatusOK, "Card is saved")
+				c.JSON(http.StatusOK, gin.H{"message": "Card is saved", "status": "success", "code": http.StatusCreated})
 			}
 		}
 	}
