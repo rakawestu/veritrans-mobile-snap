@@ -79,14 +79,14 @@ type Expiry struct {
 // Card data model
 type Card struct {
 	UserID     string `json:"user_id,omitempty"`
-	SavedToken string `json:"saved_token_id"`
-	MaskedCard string `json:"masked_card"`
+	SavedToken string `json:"token_id"`
+	MaskedCard string `json:"cardhash"`
 	StatusCode string `json:"status_code"`
 }
 
 // JsonCard data model
 type JsonCard struct {
-	SavedToken string `json:"saved_token_id"`
-	MaskedCard string `json:"masked_card"`
+	SavedToken string `json:"token_id"`
+	MaskedCard string `json:"cardhash"`
 	StatusCode string `json:"status_code"`
 }
