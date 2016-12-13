@@ -1,5 +1,8 @@
 {
 	"comment": "",
+	"heroku": {
+		"goVersion": "go1.7.1"
+	},
 	"ignore": "test",
 	"package": [
 		{
@@ -81,9 +84,5 @@
 			"revisionTime": "2016-09-28T15:37:09Z"
 		}
 	],
-	"rootPath": "github.com/rakawestu/rakawm-snap",
-	"heroku": {
-        "install" : [ "./..." ],
-        "goVersion": "go1.7.1"
-         }
+	"rootPath": "github.com/rakawestu/rakawm-snap"
 }
