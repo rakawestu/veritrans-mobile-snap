@@ -85,5 +85,5 @@
 	"heroku": {
         "install" : [ "./..." ],
         "goVersion": "go1.7.1"
-         },
+         }
 }
