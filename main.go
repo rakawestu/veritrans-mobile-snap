@@ -16,7 +16,7 @@ var MongoDBUrl string
 var MongoDB *mgo.Database
 
 // SnapURL is snap endpoint
-var SnapURL = "https://app.sandbox.veritrans.co.id/snap/v1"
+var SnapURL = "https://app.sandbox.midtrans.com/snap/v1"
 
 // SnapURLProduction is snap endpoint in production mode
 var SnapURLProduction = "https://app.midtrans.com/snap/v1"
