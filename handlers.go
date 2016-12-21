@@ -139,5 +139,5 @@ func getInstallmentData() Installment {
 }
 
 func getWhitelistBin() []string {
-	return []string{"481111", "521111", "461700", "459920", "410505", "477377", "405577"}
+	return []string{"481111", "521111", "461700", "459920", "410505", "477377", "405577", "43650263"}
 }
