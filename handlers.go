@@ -135,7 +135,7 @@ func SaveCardsEndpoint(c *gin.Context) {
 }
 
 func getInstallmentData() Installment {
-	return Installment{Required: false, Terms: Terms{BNI: []int{3, 6, 12}, Mandiri: []int{3, 6, 12}, BCA: []int{3, 6, 12}, CIMB: []int{3, 6, 12}, Offline: []int{3, 6, 12}}}
+	return Installment{Required: false, Terms: Terms{BNI: []int{3, 6, 12}, Mandiri: []int{3, 6, 12}, BCA: []int{3, 6, 12}, Offline: []int{3, 6, 12}}}
 }
 
 func getWhitelistBin() []string {
